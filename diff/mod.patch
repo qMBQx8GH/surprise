@@ -1,83 +1,16 @@
 diff -r -u -N src/gui/unbound/dock.xml res/gui/unbound/dock.xml
---- src/gui/unbound/dock.xml	2018-05-25 15:27:35.610810400 +0200
-+++ res/gui/unbound/dock.xml	2018-05-25 15:18:36.099969700 +0200
-@@ -30624,7 +30624,7 @@
- 				<width value="100%"/>
- 				<position value="absolute"/>
- 			</style>
--			<block>
-+			<!--<block>
- 				<style>
- 					<position value="absolute"/>
- 					<width value="300px"/>
-@@ -30684,7 +30684,7 @@
- 																								_instructionText 	: 'IDS_VIVE_LA_FRANCE_LOOTBOX_TOOLTIP'
- 																							} : null"/>
- 				</block>
--			</block>
-+			</block>-->
- 			<bind name="firstEntityDH" value="'lootboxEntity'; CC.lootboxConfigComponent"/>
- 			<bind name="watchDH" value="'maxBought';				['lootboxEntity.lootboxConfigComponent.evUpdate'];	lootboxEntity.lootboxConfigComponent.maxBought"/>
- 			<bind name="watchDH" value="'lootboxExp';			['lootboxEntity.lootboxStorageComponent.evUpdate'];	lootboxEntity.lootboxStorageComponent.lootExp"/>
-@@ -30703,10 +30703,15 @@
- 			<block>
- 				<style>
- 					<position value="absolute"/>
--					<width value="320px"/>
-+					<width value="100%"/>
- 					<top value="-14px"/>
- 				</style>
--				<bind name="style" value="'right'; (leftOffset) + 'px')"/>
-+				<block className="contrast_panel" type="native">
-+					<styleClass value="$FullsizeAbsolute"/>
-+					<style>
-+        					<backgroundColor value="0xff000000"/>
-+        				</style>
-+				</block>
- 				<block>
- 					<styleClass value="$FullsizeAbsolute"/>
- 					<style>
-@@ -30734,6 +30739,43 @@
- 					</style>
- 				</block>
- 				<block>
-+					<styleClass value="$MiddleAligned"/>
-+					<style>
-+						<width value="300px"/>
-+					</style>
-+					<block type="text">
-+						<styleClass value="$MiddleAligned"/>
-+						<styleClass value="$TextHeaderBold"/>
-+						<style>
-+							<marginBottom value="6px"/>
-+						</style>
-+						<bind name="text" value="toUpperCase(tr('IDS_LOOTBOXES'))"/>
-+					</block>
-+					<block>
-+						<style>
-+							<width value="100%"/>
-+						</style>
-+						<bind name="repeat" value="[	{_paragraphText: 'IDS_LOOTBOX_HINT_0'},
-+								{_paragraphText: 'IDS_LOOTBOX_HINT_1'}]; 'RepeatParagraphItem'; {	_maxWidth: 300, _marginBottom: '3px',
-+																									_middleAligned: false, _class: '$TextHeaderBigDefault',
-+																									_textAlign: 'left', _leading: -2}"/>
-+					</block>
-+				</block>
-+				<block>
-+					<bind name="firstEntityDH" value="'dockEventBannerEntity'; CC.dockEventBanner"/>
-+					<bind name="watchDH" value="'dockEventBannerSseId'; ['dockEventBannerEntity.dockEventBanner.evSseIdChanged']; dockEventBannerEntity.dockEventBanner.sseId"/>
-+					<style>
-+						<marginTop value="32px"/>
-+					</style>
-+					<bind name="instance" value="'EventLootboxBanner'; 	!!dockEventBannerSseId 	?  {	_backgroundImage	: 'url:../service_kit/event_lootbox_hint_header/vivelafrance_lootboxes.png',
-+																								_showAnimation		: true,
-+																								_bannerText			: 'IDS_VIVE_LA_FRANCE_LOOTBOX_BANNER',
-+																								_request 			: 'webBrowser',
-+																								_requestParams 		: { url: URL.EVENT_VLF_INFO_IN_GAME },
-+																								_instructionText 	: 'IDS_VIVE_LA_FRANCE_LOOTBOX_TOOLTIP'
-+																							} : null"/>
-+				</block>
-+				<block>
- 					<style>
- 						<width value="100%"/>
- 						<height value="91px"/>
+--- src/gui/unbound/dock.xml	2018-05-26 13:17:10.681866800 +0200
++++ res/gui/unbound/dock.xml	2018-05-26 13:16:14.083528200 +0200
+@@ -30530,6 +30530,12 @@
+ 		</block>
+ 	</block>
+ 	<block className="LootBoxes">
++		<block className="contrast_panel" type="native">
++			<styleClass value="$FullsizeAbsolute"/>
++			<style>
++				<backgroundColor value="0xff000000"/>
++			</style>
++		</block>
+ 		<bind name="controller" value="lesta.dialogs.controllers.EntitySingletonController; 'optionData'"/>
+ 		<bind name="controller" value="lesta.dialogs.controllers.EntitySingletonController; 'realmConstants'"/>
+ 		<bind name="stageSize"/>

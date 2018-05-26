@@ -30530,6 +30530,12 @@
 		</block>
 	</block>
 	<block className="LootBoxes">
+		<block className="contrast_panel" type="native">
+			<styleClass value="$FullsizeAbsolute"/>
+			<style>
+				<backgroundColor value="0xff000000"/>
+			</style>
+		</block>
 		<bind name="controller" value="lesta.dialogs.controllers.EntitySingletonController; 'optionData'"/>
 		<bind name="controller" value="lesta.dialogs.controllers.EntitySingletonController; 'realmConstants'"/>
 		<bind name="stageSize"/>
@@ -30624,7 +30630,7 @@
 				<width value="100%"/>
 				<position value="absolute"/>
 			</style>
-			<!--<block>
+			<block>
 				<style>
 					<position value="absolute"/>
 					<width value="300px"/>
@@ -30684,7 +30690,7 @@
 																								_instructionText 	: 'IDS_VIVE_LA_FRANCE_LOOTBOX_TOOLTIP'
 																							} : null"/>
 				</block>
-			</block>-->
+			</block>
 			<bind name="firstEntityDH" value="'lootboxEntity'; CC.lootboxConfigComponent"/>
 			<bind name="watchDH" value="'maxBought';				['lootboxEntity.lootboxConfigComponent.evUpdate'];	lootboxEntity.lootboxConfigComponent.maxBought"/>
 			<bind name="watchDH" value="'lootboxExp';			['lootboxEntity.lootboxStorageComponent.evUpdate'];	lootboxEntity.lootboxStorageComponent.lootExp"/>
@@ -30703,15 +30709,10 @@
 			<block>
 				<style>
 					<position value="absolute"/>
-					<width value="100%"/>
+					<width value="320px"/>
 					<top value="-14px"/>
 				</style>
-				<block className="contrast_panel" type="native">
-					<styleClass value="$FullsizeAbsolute"/>
-					<style>
-        					<backgroundColor value="0xff000000"/>
-        				</style>
-				</block>
+				<bind name="style" value="'right'; (leftOffset) + 'px')"/>
 				<block>
 					<styleClass value="$FullsizeAbsolute"/>
 					<style>
@@ -30737,43 +30738,6 @@
 						<marginBottom value="-33px"/>
 						<marginTop value="-33px"/>
 					</style>
-				</block>
-				<block>
-					<styleClass value="$MiddleAligned"/>
-					<style>
-						<width value="300px"/>
-					</style>
-					<block type="text">
-						<styleClass value="$MiddleAligned"/>
-						<styleClass value="$TextHeaderBold"/>
-						<style>
-							<marginBottom value="6px"/>
-						</style>
-						<bind name="text" value="toUpperCase(tr('IDS_LOOTBOXES'))"/>
-					</block>
-					<block>
-						<style>
-							<width value="100%"/>
-						</style>
-						<bind name="repeat" value="[	{_paragraphText: 'IDS_LOOTBOX_HINT_0'},
-								{_paragraphText: 'IDS_LOOTBOX_HINT_1'}]; 'RepeatParagraphItem'; {	_maxWidth: 300, _marginBottom: '3px',
-																									_middleAligned: false, _class: '$TextHeaderBigDefault',
-																									_textAlign: 'left', _leading: -2}"/>
-					</block>
-				</block>
-				<block>
-					<bind name="firstEntityDH" value="'dockEventBannerEntity'; CC.dockEventBanner"/>
-					<bind name="watchDH" value="'dockEventBannerSseId'; ['dockEventBannerEntity.dockEventBanner.evSseIdChanged']; dockEventBannerEntity.dockEventBanner.sseId"/>
-					<style>
-						<marginTop value="32px"/>
-					</style>
-					<bind name="instance" value="'EventLootboxBanner'; 	!!dockEventBannerSseId 	?  {	_backgroundImage	: 'url:../service_kit/event_lootbox_hint_header/vivelafrance_lootboxes.png',
-																								_showAnimation		: true,
-																								_bannerText			: 'IDS_VIVE_LA_FRANCE_LOOTBOX_BANNER',
-																								_request 			: 'webBrowser',
-																								_requestParams 		: { url: URL.EVENT_VLF_INFO_IN_GAME },
-																								_instructionText 	: 'IDS_VIVE_LA_FRANCE_LOOTBOX_TOOLTIP'
-																							} : null"/>
 				</block>
 				<block>
 					<style>
