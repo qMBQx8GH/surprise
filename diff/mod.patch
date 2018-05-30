@@ -1,7 +1,7 @@
 diff -r -u -N src/gui/unbound/dock.xml res/gui/unbound/dock.xml
---- src/gui/unbound/dock.xml	2018-05-26 13:17:10.681866800 +0200
-+++ res/gui/unbound/dock.xml	2018-05-26 13:16:14.083528200 +0200
-@@ -30530,6 +30530,12 @@
+--- src/gui/unbound/dock.xml	2018-05-30 15:17:59.518936400 +0200
++++ res/gui/unbound/dock.xml	2018-05-30 08:04:46.937942800 +0200
+@@ -30685,6 +30685,12 @@
  		</block>
  	</block>
  	<block className="LootBoxes">
